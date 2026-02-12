@@ -10,3 +10,14 @@ export async function getProducts() {
   const json = await response.json();
   return json.data;
 }
+
+export async function getProductById(id) {
+  const products = await getProducts();
+  const product = products.find((p) => p.id === id);
+
+  if (!product) {
+    throw new Error("Product not found");
+  }
+
+  return product;
+}
