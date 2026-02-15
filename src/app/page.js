@@ -4,10 +4,8 @@ import ProductCard from "@/components/ProductCard";
 export default async function Home() {
   const products = await getProducts();
 
-  console.log(products);
-
   return (
-    <main style={{ padding: 24 }}>
+    <main className="container">
       <h1>JS Frameworks Shop</h1>
 
       <ul>

@@ -1,3 +1,4 @@
+import AddToCartButton from "@/components/AddToCartButton";
 import { getProductById } from "@/services/products";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,6 +23,7 @@ export default async function ProductPage({ params }) {
       />
 
       <p>${product.price}</p>
+      <AddToCartButton product={product} />
       <p>{product.description}</p>
     </main>
   );
