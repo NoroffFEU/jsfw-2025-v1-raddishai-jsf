@@ -8,7 +8,7 @@ export default async function Home() {
     <main className="container">
       <h1>JS Frameworks Shop</h1>
 
-      <ul>
+      <ul className="product-grid">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
