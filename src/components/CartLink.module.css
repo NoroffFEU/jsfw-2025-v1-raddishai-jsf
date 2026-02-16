@@ -1,0 +1,21 @@
+.link {
+  position: relative;
+  font-weight: 500;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  margin-left: 6px;
+  padding: 0 6px;
+
+  border-radius: 999px;
+  background: var(--brand);
+  color: white;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+}

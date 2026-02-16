@@ -108,7 +108,8 @@ ul {
 }
 /* ===== Buttons ===== */
 
-button {
+button,
+a.button {
   font: inherit;
   cursor: pointer;
   border-radius: var(--radius);
@@ -116,18 +117,35 @@ button {
   background: var(--surface);
   padding: 0.5rem 0.9rem;
   transition: 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-button:hover {
+button:hover,
+a.button:hover {
   border-color: var(--brand);
 }
 
-button.primary {
+button.primary,
+a.button.primary {
   background: var(--brand);
   color: white;
   border-color: var(--brand);
 }
 
-button.primary:hover {
+button.primary:hover,
+a.button.primary:hover {
+  opacity: 0.9;
+}
+
+button.danger {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+button.danger:hover {
   opacity: 0.9;
 }
