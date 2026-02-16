@@ -63,4 +63,16 @@
     grid-template-columns: 420px 1fr;
     gap: 3rem;
   }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .price {
+    font-size: 1.25rem;
+  }
+
+  .description {
+    max-width: 65ch;
+  }
 }

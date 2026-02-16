@@ -19,8 +19,9 @@ export default async function ProductPage({ params }) {
           <Image
             src={product.image.url}
             alt={product.image.alt || product.title}
-            width={400}
-            height={400}
+            width={600}
+            height={600}
+            sizes="(min-width: 800px) 420px, 100vw"
           />
         </div>
 

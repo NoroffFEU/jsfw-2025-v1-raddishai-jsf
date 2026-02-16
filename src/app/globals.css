@@ -10,6 +10,17 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
 }
 
 /* ===== Design Tokens ===== */
@@ -85,10 +96,16 @@ ul {
 
 .product-grid {
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
+@media (min-width: 800px) {
+  .product-grid {
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
 /* ===== Buttons ===== */
 
 button {
