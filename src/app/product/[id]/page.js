@@ -1,3 +1,4 @@
+import styles from "./page.module.css";
 import AddToCartButton from "@/components/AddToCartButton";
 import { getProductById } from "@/services/products";
 import Image from "next/image";
@@ -8,23 +9,33 @@ export default async function ProductPage({ params }) {
   const product = await getProductById(id);
 
   return (
-    <main style={{ padding: 24 }}>
-      <Link href="/" style={{ display: "inline-block", marginBottom: 20 }}>
+    <main className={`container ${styles.page}`}>
+      <Link href="/" className={styles.backLink}>
         ← Back to shop
       </Link>
 
-      <h1>{product.title}</h1>
+      <div className={styles.content}>
+        <div className={styles.imageWrap}>
+          <Image
+            src={product.image.url}
+            alt={product.image.alt || product.title}
+            width={400}
+            height={400}
+          />
+        </div>
 
-      <Image
-        src={product.image.url}
-        alt={product.image.alt || product.title}
-        width={300}
-        height={300}
-      />
+        <div className={styles.details}>
+          <h1 className={styles.title}>{product.title}</h1>
 
-      <p>${product.price}</p>
-      <AddToCartButton product={product} />
-      <p>{product.description}</p>
+          <p className={styles.price}>${product.price}</p>
+
+          <div className={styles.actions}>
+            <AddToCartButton product={product} />
+          </div>
+
+          <p className={styles.description}>{product.description}</p>
+        </div>
+      </div>
     </main>
   );
 }

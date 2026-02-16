@@ -6,7 +6,7 @@ export default function AddToCartButton({ product }) {
   const { add } = useCart();
 
   return (
-    <button type="button" onClick={() => add(product)}>
+    <button className="primary" onClick={() => add(product)}>
       Add to cart
     </button>
   );

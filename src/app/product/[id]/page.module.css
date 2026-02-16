@@ -1,0 +1,66 @@
+.page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+}
+
+.backLink:hover {
+  color: var(--brand);
+}
+
+.content {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.imageWrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.imageWrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.description {
+  color: var(--muted);
+}
+
+.actions {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 800px) {
+  .content {
+    grid-template-columns: 420px 1fr;
+    gap: 3rem;
+  }
+}
