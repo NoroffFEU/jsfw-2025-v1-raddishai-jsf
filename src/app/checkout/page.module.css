@@ -1,62 +1,77 @@
 .page {
-  padding: 32px 0;
+  padding-block: 2rem;
 }
 
 .title {
-  margin: 16px 0 16px;
+  margin: 0 0 1rem;
 }
 
 .card {
   max-width: 640px;
-  padding: 24px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 14px;
-  background: #fff;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 6px);
+  background: var(--surface);
 }
 
 .form {
   display: grid;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .field {
   display: grid;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .label {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .input {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.28);
-  background: #fff;
-  color: inherit;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(17, 24, 39, 0.28);
+  background: var(--surface);
+  color: var(--text);
   outline: none;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .input:hover {
-  border-color: rgba(0, 0, 0, 0.38);
+  border-color: rgba(17, 24, 39, 0.38);
 }
 
 .input:focus {
-  border-color: rgba(0, 0, 0, 0.55);
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+  border-color: rgba(37, 99, 235, 0.55);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
 .actions {
-  margin-top: 8px;
+  margin-top: 0.5rem;
 }
 
-.actions :global(.button) {
+.actions :global(button.primary) {
   width: 100%;
   display: block;
-  padding: 14px 16px;
+  padding: 0.9rem 1rem;
+}
+
+/* Error styles */
+
+.errorInput {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.errorMessage {
+  font-size: 0.85rem;
+  color: #ef4444;
 }
