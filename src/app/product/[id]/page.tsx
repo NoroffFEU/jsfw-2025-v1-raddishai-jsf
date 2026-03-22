@@ -12,6 +12,12 @@ export default async function ProductPage({
   const { id } = await params;
   const product = await getProductById(id);
 
+  const hasDiscount =
+    product.discountedPrice !== undefined &&
+    product.discountedPrice < product.price;
+
+  const displayPrice = hasDiscount ? product.discountedPrice : product.price;
+
   return (
     <main className={`container ${styles.page}`}>
       <Link href="/" className={styles.backLink}>
@@ -32,7 +38,16 @@ export default async function ProductPage({
         <div className={styles.details}>
           <h1 className={styles.title}>{product.title}</h1>
 
-          <p className={styles.price}>${product.price}</p>
+          <p className={styles.price}>
+            {hasDiscount ? (
+              <>
+                <span className={styles.oldPrice}>${product.price}</span>{" "}
+                <span className={styles.discounted}>${displayPrice}</span>
+              </>
+            ) : (
+              <>${product.price}</>
+            )}
+          </p>
 
           <div className={styles.actions}>
             <AddToCartButton product={product} />

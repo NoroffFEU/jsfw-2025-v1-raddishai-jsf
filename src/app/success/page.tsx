@@ -3,6 +3,12 @@
 import Link from "next/link";
 import { useCart } from "@/context/cart-context";
 
+function getDisplayPrice(price: number, discountedPrice?: number) {
+  return discountedPrice !== undefined && discountedPrice < price
+    ? discountedPrice
+    : price;
+}
+
 export default function SuccessPage() {
   const { lastOrder } = useCart();
 
@@ -22,11 +28,19 @@ export default function SuccessPage() {
           <h2>Order summary</h2>
 
           <ul>
-            {lastOrder.items.map(({ product, quantity }) => (
-              <li key={product.id}>
-                <strong>{product.title}</strong> — {quantity} × ${product.price}
-              </li>
-            ))}
+            {lastOrder.items.map(({ product, quantity }) => {
+              const unitPrice = getDisplayPrice(
+                product.price,
+                product.discountedPrice,
+              );
+
+              return (
+                <li key={product.id}>
+                  <strong>{product.title}</strong> — {quantity} × $
+                  {unitPrice.toFixed(2)}
+                </li>
+              );
+            })}
           </ul>
 
           <p>

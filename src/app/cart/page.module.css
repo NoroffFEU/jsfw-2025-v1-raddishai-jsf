@@ -35,6 +35,19 @@
   color: var(--muted);
 }
 
+.oldPrice {
+  text-decoration: line-through;
+  color: var(--muted);
+  opacity: 0.8;
+  margin-right: 0.5rem;
+}
+
+.discountedPrice {
+  color: var(--brand);
+  font-weight: 700;
+  margin-right: 0.25rem;
+}
+
 .controls {
   display: flex;
   align-items: center;

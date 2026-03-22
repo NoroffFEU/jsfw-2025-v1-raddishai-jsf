@@ -8,6 +8,9 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const hasDiscount =
+    product.discountedPrice && product.discountedPrice < product.price;
+
   return (
     <li className={styles.card}>
       <Link href={`/product/${product.id}`}>
@@ -24,7 +27,16 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       <div className={styles.priceRow}>
-        <span className={styles.price}>${product.price}</span>
+        {hasDiscount ? (
+          <>
+            <span className={styles.oldPrice}>${product.price}</span>
+            <span className={styles.discounted}>
+              ${product.discountedPrice}
+            </span>
+          </>
+        ) : (
+          <span className={styles.price}>${product.price}</span>
+        )}
       </div>
     </li>
   );

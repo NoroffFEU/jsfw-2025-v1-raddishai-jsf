@@ -44,11 +44,23 @@
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .price {
   font-weight: 600;
   color: var(--text);
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.discounted {
+  font-weight: 700;
+  color: var(--brand);
 }
 
 .actions {

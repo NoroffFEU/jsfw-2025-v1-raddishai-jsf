@@ -46,8 +46,23 @@
 }
 
 .price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
   font-weight: 700;
   color: var(--text);
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.discounted {
+  color: var(--brand);
+  font-weight: 700;
 }
 
 .description {
