@@ -1,15 +1,20 @@
 import styles from "./ProductCard.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import type { Product } from "@/types/product";
 
-export default function ProductCard({ product }) {
+interface ProductCardProps {
+  product: Product;
+}
+
+export default function ProductCard({ product }: ProductCardProps) {
   return (
     <li className={styles.card}>
       <Link href={`/product/${product.id}`}>
         <div className={styles.imageWrap}>
           <Image
-            src={product.image.url}
-            alt={product.image.alt || product.title}
+            src={product.image?.url || "/placeholder.png"}
+            alt={product.image?.alt || product.title}
             width={300}
             height={300}
           />

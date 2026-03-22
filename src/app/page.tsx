@@ -1,5 +1,6 @@
 import { getProducts } from "@/services/products";
 import ProductCard from "@/components/ProductCard";
+import type { Product } from "@/types/product";
 
 export default async function Home() {
   const products = await getProducts();
@@ -9,7 +10,7 @@ export default async function Home() {
       <h1>JS Frameworks Shop</h1>
 
       <ul className="product-grid">
-        {products.map((product) => (
+        {products.map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </ul>

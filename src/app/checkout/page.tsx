@@ -1,20 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { useCart } from "@/context/cart-context";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 
+interface CheckoutErrors {
+  fullName?: string;
+  email?: string;
+  address?: string;
+}
+
 export default function CheckoutPage() {
   const { checkout } = useCart();
   const router = useRouter();
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<CheckoutErrors>({});
 
-  function handleSubmit(e) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-    const newErrors = {};
+    const newErrors: CheckoutErrors = {};
 
     const fullName = String(formData.get("fullName") || "").trim();
     const email = String(formData.get("email") || "").trim();
@@ -46,7 +52,6 @@ export default function CheckoutPage() {
 
       <section className={styles.card}>
         <form className={styles.form} onSubmit={handleSubmit}>
-          {/* Full Name */}
           <div className={styles.field}>
             <label className={styles.label} htmlFor="fullName">
               Full Name
@@ -65,7 +70,6 @@ export default function CheckoutPage() {
             )}
           </div>
 
-          {/* Email */}
           <div className={styles.field}>
             <label className={styles.label} htmlFor="email">
               Email
@@ -84,7 +88,6 @@ export default function CheckoutPage() {
             )}
           </div>
 
-          {/* Address */}
           <div className={styles.field}>
             <label className={styles.label} htmlFor="address">
               Address
