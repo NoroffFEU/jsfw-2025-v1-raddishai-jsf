@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getProducts } from "@/services/products";
 import ProductCard from "@/components/ProductCard";
 import type { Product } from "@/types/product";
+import styles from "./page.module.css";
 
 function getDisplayPrice(product: Product): number {
   return product.discountedPrice !== undefined &&
@@ -46,24 +47,35 @@ export default function Home() {
     <main className="container">
       <h1>JS Frameworks Shop</h1>
 
-      <input
-        type="text"
-        placeholder="Search products..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <div className={styles.toolbar}>
+        <input
+          className={styles.searchInput}
+          type="text"
+          placeholder="Search products..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
 
-      <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-        <option value="default">Sort by</option>
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-      </select>
+        <select
+          className={styles.sortSelect}
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+        >
+          <option value="default">Sort by</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
 
-      <ul className="product-grid">
-        {sortedProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </ul>
+      {sortedProducts.length === 0 ? (
+        <p>No products matched your search.</p>
+      ) : (
+        <ul className="product-grid">
+          {sortedProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </ul>
+      )}
     </main>
   );
 }
