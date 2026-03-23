@@ -38,10 +38,14 @@ export default async function ProductPage({
         <div className={styles.details}>
           <h1 className={styles.title}>{product.title}</h1>
 
+          {product.rating !== undefined && (
+            <p className={styles.rating}>Rating: {product.rating}/5</p>
+          )}
+
           <p className={styles.price}>
             {hasDiscount ? (
               <>
-                <span className={styles.oldPrice}>${product.price}</span>{" "}
+                <span className={styles.oldPrice}>${product.price}</span>
                 <span className={styles.discounted}>${displayPrice}</span>
               </>
             ) : (
@@ -54,6 +58,39 @@ export default async function ProductPage({
           </div>
 
           <p className={styles.description}>{product.description}</p>
+
+          {product.tags && product.tags.length > 0 && (
+            <div className={styles.tags}>
+              {product.tags.map((tag) => (
+                <span key={tag} className={styles.tag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <section className={styles.reviewsSection}>
+            <h2 className={styles.reviewsTitle}>Reviews</h2>
+
+            {product.reviews && product.reviews.length > 0 ? (
+              <ul className={styles.reviewsList}>
+                {product.reviews.map((review, index) => (
+                  <li
+                    key={review.id || `${review.username || "review"}-${index}`}
+                    className={styles.reviewItem}
+                  >
+                    <p className={styles.reviewMeta}>
+                      <strong>{review.username || "Anonymous"}</strong>
+                      {review.rating !== undefined && ` · ${review.rating}/5`}
+                    </p>
+                    <p>{review.description || "No review text provided."}</p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className={styles.noReviews}>No reviews yet.</p>
+            )}
+          </section>
         </div>
       </div>
     </main>

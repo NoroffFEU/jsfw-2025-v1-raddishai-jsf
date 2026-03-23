@@ -45,6 +45,12 @@
   margin: 0;
 }
 
+.rating {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 500;
+}
+
 .price {
   display: flex;
   align-items: baseline;
@@ -71,6 +77,57 @@
 
 .actions {
   margin-top: 0.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.875rem;
+}
+
+.reviewsSection {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.reviewsTitle {
+  margin: 0;
+}
+
+.reviewsList {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.reviewItem {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.reviewMeta {
+  margin: 0 0 0.5rem 0;
+  color: var(--muted);
+}
+
+.noReviews {
+  color: var(--muted);
 }
 
 @media (min-width: 800px) {
