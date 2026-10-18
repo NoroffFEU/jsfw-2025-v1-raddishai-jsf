@@ -70,11 +70,14 @@ export default function Home() {
       {sortedProducts.length === 0 ? (
         <p>No products matched your search.</p>
       ) : (
-        <ul className="product-grid">
-          {sortedProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </ul>
+        <>
+          <h2>Our Products</h2>
+          <ul className="product-grid">
+            {sortedProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </ul>
+        </>
       )}
     </main>
   );

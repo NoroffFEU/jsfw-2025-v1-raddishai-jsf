@@ -29,13 +29,13 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className={styles.priceRow}>
         {hasDiscount ? (
           <>
-            <span className={styles.oldPrice}>${product.price}</span>
+            <span className={styles.oldPrice}>${product.price.toFixed(2)}</span>
             <span className={styles.discounted}>
-              ${product.discountedPrice}
+              ${product.discountedPrice.toFixed(2)}
             </span>
           </>
         ) : (
-          <span className={styles.price}>${product.price}</span>
+          <span className={styles.price}>${product.price.toFixed(2)}</span>
         )}
       </div>
     </li>
